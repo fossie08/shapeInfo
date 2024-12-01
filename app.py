@@ -11,13 +11,10 @@ def cylinder(radius, height):
     return volume, surface_area
 
 def cone(height, radius):
-    def calc_surface_area(height, radius):
-        #calculates the slant length 
+    def calc_surface_area(height, radius): 
         slant_length = (height**2) + (radius**2)
         slant_length = math.sqrt(slant_length)
-        #calculates the base area 
         base_area = (radius**2) * PI 
-        #calculates the the lateral surface area 
         lateral_surface_area  = radius * slant_length * PI 
         return base_area + lateral_surface_area
     
@@ -28,25 +25,25 @@ def cone(height, radius):
     if radius <= 0 or height <= 0:
         raise ValueError("Radius and Height must be positive.")
 
-    cone_surface_area = round(calc_surface_area(height, radius),2)
-    cone_volume = round(calc_volume(height, radius),2)
+    surface_area = round(calc_surface_area(height, radius),2)
+    volume = round(calc_volume(height, radius),2)
     
-    return cone_volume, cone_surface_area 
+    return volume, surface_area 
 
 def sphere(radius):
-    checkingInput = True
-    while checkingInput:
-        if radius<= 0:
-            print("Radius must be positive")
+    checking_input = True
+    while checking_input:
+        if radius <= 0:
+            raise ValueError ("Radius must be positive.")
         else:
-            checkingInput = False
+            checking_input = False
     volume = (4/3) * PI * (radius**2)
     surface_area = 4 * PI * (radius**2) 
     return volume, surface_area
 
 def cuboid(width, length, height):
     if width <= 0 or length <= 0 or height <= 0:
-        raise ValueError("Width, length and height must all be positive")
+        raise ValueError("Width, length and height must all be positive.")
     volume = width * length * height
     surface_area = 2 * ((length * width) + (width * height) + (length * height))
     return volume, surface_area
