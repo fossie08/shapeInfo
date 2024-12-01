@@ -44,6 +44,13 @@ def sphere(radius):
     surface_area = 4 * PI * (radius^2) 
     return volume, surface_area
 
+def cuboid(width, length, height):
+    if width <= 0 or length <= 0 or height <= 0:
+        raise ValueError("Width, length and height must all be positive")
+    volume = width * length * height
+    surface_area = 2 * ((length * width) + (width * height) + (length * height))
+    return volume, surface_area
+    
 def calculate():
     shape = shape_var.get()
     try:
@@ -58,6 +65,7 @@ def calculate():
             length = float(param1_entry.get())
             width = float(param2_entry.get())
             height = float(param3_entry.get())
+            volume, surface_area = cuboid(width, length, height)
         elif shape == "Cone":
             radius = float(param1_entry.get())
             height = float(param2_entry.get())
