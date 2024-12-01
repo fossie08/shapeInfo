@@ -25,15 +25,19 @@ def cone():
     while True:
         try: 
             height = float(input('Please enter height of the cone: '))
+            if height <= 0:
+                raise ValueError
             break
         except ValueError: 
-            print('Please enter a number')
+            print('Please enter a number and make sure it is not 0 or smaller')
     while True: 
         try: 
             radius = float(input('Please enter radius of the base of the cone: '))
+            if radius <= 0:
+                raise ValueError
             break
         except ValueError: 
-            print('Please enter a number')
+            print('Please enter a number and make sure it is not 0 or smaller')
 
 
     coneSurfaceArea = round(calcSurfaceArea(height, radius),2)
