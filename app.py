@@ -40,8 +40,8 @@ def sphere(radius):
             print("Radius must be positive")
         else:
             checkingInput = False
-    volume = (4/3) * PI * (radius^2)
-    surface_area = 4 * PI * (radius^2) 
+    volume = (4/3) * PI * (radius**2)
+    surface_area = 4 * PI * (radius**2) 
     return volume, surface_area
 
 def cuboid(width, length, height):
@@ -61,6 +61,7 @@ def calculate():
             volume, surface_area = cylinder(radius, height)
         elif shape == "Sphere":
             radius = float(param1_entry.get())
+            volume, surface_area = sphere(radius)
         elif shape == "Cuboid":
             length = float(param1_entry.get())
             width = float(param2_entry.get())
@@ -69,6 +70,7 @@ def calculate():
         elif shape == "Cone":
             radius = float(param1_entry.get())
             height = float(param2_entry.get())
+            volume, surface_area = cone(height,radius)
         else:
             raise ValueError("Invalid shape selected.")
         
