@@ -1,13 +1,39 @@
 import tkinter as tk
 from tkinter import messagebox
 import math
+PI = math.pi
 
 def cylinder(radius, height):
     if radius <= 0 or height <= 0:
         raise ValueError("Radius and Height must be positive.")
-    volume = math.pi * height * (radius**2)
-    surface_area = 2 * math.pi * radius * (radius + height)
+    volume = PI * height * (radius**2)
+    surface_area = 2 * PI * radius * (radius + height)
     return volume, surface_area
+
+def cone(height, radius):
+    def calc_surface_area(height, radius):
+        #calculates the slant length 
+        slant_length = (height**2) + (radius**2)
+        slant_length = math.sqrt(slant_length)
+        #calculates the base area 
+        base_area = (radius**2) * PI 
+        #calculates the the lateral surface area 
+        lateral_surface_area  = radius * slant_length * PI 
+        return base_area + lateral_surface_area
+    
+    def calc_volume(height, radius): 
+        volume = (1/3) * PI * (radius**2) * height 
+        return volume
+
+    if radius <= 0 or height <= 0:
+        raise ValueError("Radius and Height must be positive.")
+
+    cone_surface_area = round(calc_surface_area(height, radius),2)
+    cone_volume = round(calc_volume(height, radius),2)
+    
+    return cone_volume, cone_surface_area 
+
+
 
 def calculate():
     shape = shape_var.get()
