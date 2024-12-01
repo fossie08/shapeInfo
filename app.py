@@ -86,6 +86,11 @@ def update_parameters(*args):
     param2_entry.grid_remove()
     param3_entry.grid_remove()
 
+    param1_entry.delete(0, tk.END)
+    param2_entry.delete(0, tk.END)
+    param3_entry.delete(0, tk.END)
+    result_label.config(text="")
+
     if shape == "Cylinder":
         param1_label.config(text="Radius:")
         param2_label.config(text="Height:")
