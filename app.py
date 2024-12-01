@@ -33,7 +33,16 @@ def cone(height, radius):
     
     return cone_volume, cone_surface_area 
 
-
+def sphere(radius):
+    checkingInput = True
+    while checkingInput:
+        if radius<= 0:
+            print("Radius must be positive")
+        else:
+            checkingInput = False
+    volume = (4/3) * PI * (radius^2)
+    surface_area = 4 * PI * (radius^2) 
+    return volume, surface_area
 
 def calculate():
     shape = shape_var.get()
