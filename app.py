@@ -85,7 +85,7 @@ def calculate():
         # Display formatted results
         result_label.config(text=f"Volume: {formatted_volume}\nSurface Area: {formatted_surface_area}")
     except ValueError as e:
-        messagebox.showerror("Input Error", "please enter a number")
+        messagebox.showerror("Input Error", str(e))
 
 def update_parameters(*args):
     shape = shape_var.get()
