@@ -5,7 +5,7 @@ PI = math.pi
 
 def cylinder(radius, height):
     if radius <= 0 or height <= 0:
-        raise ValueError("Radius and Height must be positive.")
+        raise ValueError("Radius and Height must be positive and not equal to 0.")
     volume = PI * height * (radius**2)
     surface_area = 2 * PI * radius * (radius + height)
     return volume, surface_area
