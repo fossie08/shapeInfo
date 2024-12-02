@@ -5,7 +5,7 @@ PI = math.pi
 
 def cylinder(radius, height):
     if radius <= 0 or height <= 0:
-        raise ValueError("Radius and Height must be positive and not equal to 0.")
+        raise ValueError("Radius and Height must be positive and not equal to zero.")
     volume = PI * height * (radius**2)
     surface_area = 2 * PI * radius * (radius + height)
     return volume, surface_area
@@ -23,7 +23,7 @@ def cone(height, radius):
         return volume
 
     if radius <= 0 or height <= 0:
-        raise ValueError("Radius and Height must be positive.")
+        raise ValueError("Radius and Height must be positive and not equal to zero.")
 
     surface_area = round(calc_surface_area(height, radius),2)
     volume = round(calc_volume(height, radius),2)
@@ -34,7 +34,7 @@ def sphere(radius):
     checking_input = True
     while checking_input:
         if radius <= 0:
-            raise ValueError ("Radius must be positive.")
+            raise ValueError ("Radius must be positive and not equal to zero.")
         else:
             checking_input = False
     volume = (4/3) * PI * (radius**2)
@@ -43,7 +43,7 @@ def sphere(radius):
 
 def cuboid(width, length, height):
     if width <= 0 or length <= 0 or height <= 0:
-        raise ValueError("Width, length and height must all be positive.")
+        raise ValueError("Width, length and height must all be positive and not equal to zero.")
     volume = width * length * height
     surface_area = 2 * ((length * width) + (width * height) + (length * height))
     return volume, surface_area
@@ -85,7 +85,7 @@ def calculate():
         # Display formatted results
         result_label.config(text=f"Volume: {formatted_volume}\nSurface Area: {formatted_surface_area}")
     except ValueError as e:
-        messagebox.showerror("Input Error", str(e))
+        messagebox.showerror("Input Error", "please enter a number")
 
 def update_parameters(*args):
     shape = shape_var.get()
