@@ -71,8 +71,19 @@ def calculate():
         else:
             raise ValueError("Invalid shape selected.")
         
-        # Display results
-        result_label.config(text=f"Volume: {volume:.2f}\nSurface Area: {surface_area:.2f}")
+        # Format volume and surface area in scientific notation/standard form if necessary
+        def format_number(num):
+            if num >= 1e6 or num <= 1e-2:
+                return f"{num:.2e}"
+            else:
+                return f"{num:.2f}"
+        
+        # Apply formatting to volume and surface_area
+        formatted_volume = format_number(volume)
+        formatted_surface_area = format_number(surface_area)
+
+        # Display formatted results
+        result_label.config(text=f"Volume: {formatted_volume}\nSurface Area: {formatted_surface_area}")
     except ValueError as e:
         messagebox.showerror("Input Error", str(e))
 
